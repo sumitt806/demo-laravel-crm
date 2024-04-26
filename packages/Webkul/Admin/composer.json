@@ -1,0 +1,35 @@
+{
+    "name": "sam/laravel-admin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jitendra Singh",
+            "email": "jitendra@webkul.com"
+        }
+    ],
+    "require": {
+        "sam/laravel-attribute": "^1.0",
+        "sam/laravel-contact": "^1.0",
+        "sam/laravel-core": "^1.0",
+        "sam/laravel-email": "^1.0",
+        "sam/laravel-lead": "^1.0",
+        "sam/laravel-product": "^1.0",
+        "sam/laravel-tag": "^1.0",
+        "sam/laravel-ui": "^1.0",
+        "sam/laravel-user": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Admin\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Admin\\Providers\\AdminServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
