@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 12:23 PM
+-- Generation Time: May 20, 2024 at 08:40 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 8.2.12
 
@@ -162,6 +162,21 @@ CREATE TABLE `attribute_values` (
   `entity_id` int(10) UNSIGNED NOT NULL,
   `attribute_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `attribute_values`
+--
+
+INSERT INTO `attribute_values` (`id`, `entity_type`, `text_value`, `boolean_value`, `integer_value`, `float_value`, `datetime_value`, `date_value`, `json_value`, `entity_id`, `attribute_id`) VALUES
+(1, 'persons', 'Test Contact Person', NULL, NULL, NULL, NULL, NULL, NULL, 1, 9),
+(2, 'persons', NULL, NULL, NULL, NULL, NULL, NULL, '[{\"value\":\"test@example.com\",\"label\":\"work\"}]', 1, 10),
+(3, 'persons', NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1, 11),
+(4, 'leads', 'Test Lead', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1),
+(5, 'leads', NULL, NULL, NULL, 1000, NULL, NULL, NULL, 1, 3),
+(6, 'leads', NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, 4),
+(7, 'leads', NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, 5),
+(8, 'leads', NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, 6),
+(9, 'leads', NULL, NULL, NULL, NULL, NULL, '2024-05-31', NULL, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -1164,6 +1179,13 @@ CREATE TABLE `leads` (
   `expected_close_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `leads`
+--
+
+INSERT INTO `leads` (`id`, `title`, `description`, `lead_value`, `status`, `lost_reason`, `closed_at`, `user_id`, `person_id`, `lead_source_id`, `lead_type_id`, `lead_pipeline_id`, `lead_pipeline_stage_id`, `created_at`, `updated_at`, `expected_close_date`) VALUES
+(1, 'Test Lead', NULL, '1000.0000', 1, NULL, NULL, 1, 1, 1, 1, 1, 1, '2024-05-20 18:37:23', '2024-05-20 18:37:34', '2024-05-31');
+
 -- --------------------------------------------------------
 
 --
@@ -1438,6 +1460,13 @@ CREATE TABLE `persons` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `persons`
+--
+
+INSERT INTO `persons` (`id`, `name`, `emails`, `contact_numbers`, `organization_id`, `created_at`, `updated_at`) VALUES
+(1, 'Test Contact Person', '[{\"value\":\"test@example.com\",\"label\":\"work\"}]', '[{\"value\":null,\"label\":\"work\"}]', NULL, '2024-05-20 18:37:23', '2024-05-20 18:37:23');
 
 -- --------------------------------------------------------
 
@@ -1984,7 +2013,7 @@ ALTER TABLE `attribute_options`
 -- AUTO_INCREMENT for table `attribute_values`
 --
 ALTER TABLE `attribute_values`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `core_config`
@@ -2038,7 +2067,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `leads`
 --
 ALTER TABLE `leads`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lead_pipelines`
@@ -2098,7 +2127,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
